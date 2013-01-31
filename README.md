@@ -7,11 +7,22 @@ Zenstack aims to provide a customizable development environment for Openstack (O
   <li>If you have a license to apply to XenServer see the section below on applying it.</li>
 </ol>
 
-<h2>Usage</h2>
+<h2>Usage (for current supported configuration)</h2>
 <ol>
-  <li>Use it!</li>
+  <li>Create a new virtual machine in VMware [recommened: 2 CPUs, 2048 GB].</li>
   <li>There is no real need for complicated passwords in this setup, but be conscious of the fact that passwords are currently viewable as plaintext.</li>
-  <li>More soon.</li>
+  <li>Install XenServer but ensure you do check 'enable thin provisioning'.</li>
+  <li>Note the IP address of the new VM and ssh into the machine as root</li>
+  <li>Download the *.zip of this repository and extract it in /root</li>
+  <li><i>(Optional?)</i> If you have a license place it into the same place as xs_setup.sh</li>
+  <li>Change directory to where xs_setup.sh is</li>
+  <li>Run xs_setup.sh and follow the prompts (the default values are typically valid). If you make a mistake during this step it is safe to CTRL+C out of the program and try again.</li>
+  <li>There are two opportunities for the setup to require more interaction after it begins</li>
+  <li>You may be required to get the XenServer kernel data from the DDK (rare as they are provided). Just follow the directions given</li>
+  <li>You will be prompted to mount the VMware Tools (Menu > Virtual Machine > Install VMware Tools). Note the prompt that mentions the kernel headers path. It would be wise to copy this path as you will need to enter it in during the VMware Tools installation</li>
+  <li>After this point the setup will not require further interaction.</li>
+  <li>The XenServer setup will continue until it outputs: <b>all done :)</b>. This does not mean the VM you are creating to run the OS services has finished. Instructions will be displayed at the end of the XenServer install to monitor the installation progress of the VM. It is important you follow them exactly.</li>
+  <li>If your internet connection is stable your VM will reboot (there will be /dev/rtc errors near the end, this is <i>okay</i>)</li>
 </ol>
 
 <h2>Supported Configurations</h2>
