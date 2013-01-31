@@ -11,6 +11,7 @@ export OS_CERT=${NOVA_KEY_DIR}/cacert.pem
 export OS_API_KEY="nova"
 export OS_USERNAME="admin"
 export OS_TENANT_ID="openstack"
+export OS_TENANT_NAME="openstack"
 export OS_PASSWORD="password"
 export OS_PROJECT_ID="openstack"
 export OS_AUTH_URL="http://127.0.0.1:35357/v2.0/"
