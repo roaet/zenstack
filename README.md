@@ -2,7 +2,7 @@
 <hr/>
 Zenstack aims to provide a customizable development environment for Openstack (OS) developers that can be deployed quickly and without much interaction. It is based on XenServer (dom0) but may support XCP in the future.
 
-<h2>Alternatives</h2>
+<h2>Friends and Family - Alternatives</h2>
 Zenstack is currently in Pre-Alpha. Although it manages to perform all tasks successfully, it currently does not support customization and may not have your exact configuration. It is recommended that you ensure that the other available solutions are not better-fits for your particular situation. The below list is an incomplete list of alternatives:
 <ul>
   <li><a href="http://devstack.org">devstack</a> - A very popular and even less interactive install of OS.</li>
