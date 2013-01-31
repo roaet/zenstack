@@ -44,7 +44,7 @@ To apply the license to XenServer you must create a file called license.txt and 
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-&lt;xe_license sku_type=&quot;XE Express&quot; version=&quot;5.0.0&quot; productcode=&quot;PRODUCT-CODE&quot; serialnumber=&quot;SERIAL-NUMBER&quot; sockets=&quot;32&quot; expiry=&quot;2082848400.000000&quot; human_readable_expiry=&quot;2036-01-01&quot; name=&quot;NAME&quot; address1=&quot;&quot; address2=&quot;&quot; city=&quot;&quot; state=&quot;&quot; postalcode=&quot;&quot; country=&quot;US&quot; company=&quot;COMPANY NAME&quot;/&gt;
+&lt;xe_license sku_type=&quot;SKU-TYPE&quot; version=&quot;5.0.0&quot; productcode=&quot;PRODUCT-CODE&quot; serialnumber=&quot;SERIAL-NUMBER&quot; sockets=&quot;32&quot; expiry=&quot;2082848400.000000&quot; human_readable_expiry=&quot;2036-01-01&quot; name=&quot;NAME&quot; address1=&quot;&quot; address2=&quot;&quot; city=&quot;&quot; state=&quot;&quot; postalcode=&quot;&quot; country=&quot;US&quot; company=&quot;COMPANY NAME&quot;/&gt;
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.5 (GNU/Linux)
 
