@@ -5,7 +5,8 @@ Zenstack aims to provide a customizable development environment for Openstack (O
 <h2>Usage</h2>
 <ol>
   <li>Use it!</li>
-  <li>Todo...</li>
+  <li>There is no real need for complicated passwords in this setup, but be conscious of the fact that passwords are currently viewable as plaintext.</li>
+  <li>More soon.</li>
 </ol>
 
 <h2>Supported Configurations</h2>
@@ -14,7 +15,10 @@ Zenstack aims to provide a customizable development environment for Openstack (O
 </ul>
 
 <h2>Troubleshooting</h2>
-
+<ul>
+  <li>Be careful when entering values as there isn't currently a good way to 'undo'.</li>
+  <li>It is unknown if the install will currently work without including license.txt</li>
+</ul>
 <h2>Proposed Features</h2>
 <ul>
   <li>Modular selection of OS services</li>
