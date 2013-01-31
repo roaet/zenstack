@@ -5,7 +5,7 @@ Zenstack aims to provide a customizable development environment for Openstack (O
 <h2>Preparatory Steps</h2>
 <ol>
   <li>If you have a license to apply to XenServer see the section below on applying it.</li>
-  <li>If you are not on a stable (fast?) Internet connection this <b>will</b> fail.</li>
+  <li>If you are not on a stable (fast?) Internet connection this <b>will</b> fail. This is for you, wireless-users.</li>
 </ol>
 
 <h2>Usage (for current supported configuration)</h2>
