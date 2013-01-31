@@ -41,7 +41,7 @@ If you have found that Zenstack is the answer for you, welcome!
 <h2>Supported Configurations</h2>
 <ul>
   <li>Debian Squeeze (domU) hosted by XenServer 6.0.0 (dom0) running in VMware fusion 4.1.3 on OS X 10.8.2 [2.3 Ghz i7, 8 GB]</li>
-  <li>Debian Squeeze (domU) hosted by XenServer 6.0.0 (dom0) running in VMware fusion 5 on OS X 10.8.2 [2.3 Ghz i7, 8 GB]</li>
+  <li>Debian Squeeze (domU) hosted by XenServer 6.0.0 (dom0) running in VMware fusion 5.0.2 on OS X 10.8.2 [2.3 Ghz i7, 8 GB]</li>
 </ul>
 
 <h2>Troubleshooting</h2>
