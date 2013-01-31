@@ -33,7 +33,7 @@ If you have found that Zenstack is the answer for you, welcome!
   <li>You may be required to get the XenServer kernel data from the DDK (rare as they are provided). Just follow the directions given.<br/><br/></li>
   <li>You will be prompted to mount the VMware Tools (Menu > Virtual Machine > Install VMware Tools). Note the prompt that mentions the kernel headers path. It would be wise to copy this path as you will need to enter it in during the VMware Tools installation.<br/><br/></li>
   <li>After this point the setup will not require further interaction.<br/><br/></li>
-  <li>The XenServer setup will continue until it outputs: <b>all done :)</b>. This does not mean the domU you are creating to run the OS services has finished. Instructions will be displayed at the end of the XenServer install to monitor the installation progress of the domU. It is important you follow them exactly.<br/><br/></li>
+  <li>The XenServer setup will continue until it outputs: <b>all done :)</b>. This does not mean the domU you are creating to run the OS services has finished. Instructions will be displayed at the end of the dom0 install to monitor the installation progress of the domU. It is important you follow them exactly.<br/><br/></li>
   <li>If your internet connection is stable your VM will reboot (you will see /dev/rtc errors near the end if you are monitoring the domU, this is <i>okay</i>).<br/><br/></li>
   <li>You may run xs_setup.sh again and it will skip all steps that it can. Do this if you need to create a new VM (see: Creating new domU) or if the install failed. It is not tested if XenServer will handle multiple domUs running at the same time.
 </ol>
