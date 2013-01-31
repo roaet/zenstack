@@ -19,7 +19,7 @@ If you have found that Zenstack is the answer for you, welcome!
 
 <h2>Usage (for current supported configuration)</h2>
 <ol>
-  <li>Create a new virtual machine in VMware [<b>recommended: 2 CPUs, 2048 GB</b>].<br/><br/></li>
+  <li>Create a new virtual machine in VMware, Linux Other [<b>recommended: 2 CPUs, 2048 GB</b>].<br/><br/></li>
   <li>There is no real need for complicated passwords in this setup, but be conscious of the fact that passwords are currently viewable as plaintext.<br/><br/></li>
   <li>Install XenServer but ensure you do check '<b>enable thin provisioning</b>'. This will be referred to as your <b>dom0</b> henceforth.<br/><br/></li>
   <li>Note the IP address of your dom0 and ssh into the machine as <b>root</b><br/><br/></li>
