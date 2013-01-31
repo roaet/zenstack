@@ -36,7 +36,7 @@ If you have found that Zenstack is the answer for you, welcome!
   <li>After this point the setup will not require further interaction.<br/><br/></li>
   <li>The XenServer setup will continue until it outputs: <b>all done :)</b>. This does not mean the domU you are creating to run the OS services has finished. Instructions will be displayed at the end of the dom0 install to monitor the installation progress of the domU. It is important you follow them exactly.<br/><br/></li>
   <li>If your internet connection is stable your VM will reboot (you will see /dev/rtc errors near the end if you are monitoring the domU, this is <i>okay</i>).<br/><br/></li>
-  <li>You may run xs_setup.sh again and it will skip all steps that it can. Do this if you need to create a new VM (see: Creating new domU) or if the install failed. It is not tested if XenServer will handle multiple domUs running at the same time.
+  <li>You may run xs_setup.sh again and it will skip all steps that it can. Do this if you need to create a new VM (see: <a href="#creating-a-new-domu">Creating</a> a new domU) or if the install failed. It is not tested if XenServer will handle multiple domUs running at the same time.
 </ol>
 
 <h2>Supported Configurations</h2>
@@ -50,7 +50,7 @@ If you have found that Zenstack is the answer for you, welcome!
   <li>Be careful when entering values as there isn't currently a good way to 'undo'.</li>
   <li>It is unknown if the install will currently work without including license.txt</li>
   <li>If your domU fails during the install don't fret! Check out the <b>Creating new domU</b> section below.</li>
-  <li>domU is failing immediately with disk write errors? You are probably out of storage space. See the <b>Freeing some space</b> section below.</li>
+  <li>domU is failing immediately with disk write errors? You are probably out of storage space. See the <a href="#freeing-some-space">Freeing some space</a>.</li>
   <li>Although rare, it is possible that the domU will not boot properly, and when you get to the part of watching its installation it will just "Segmentation Fault" and disconnect you. It is recommened that you delete that domU and create a new one.
 </ul>
 <h2>Creating a new domU</h2>
@@ -68,7 +68,7 @@ Creating a new domU, in case your current one is corrupted, if it failed during 
   <li>Run xs_setup.sh as described above.<br/><br/></li>
 </ol>
 
-<h2>Bulk Clearing VDIs</h2>
+<h2>Freeing Some Space</h2>
 If you haven't been removing domUs as per the above section, your storage repository will eventually fill up. When this happens all new domUs miraculously fail during install. Perform the following steps as root on your dom0 (<b>Note: you should destroy all domU's before doing this):
 <ol>
   <li>Find the SR named "Local storage" and copy its UUID by running the command: <pre>xe sr-list</pre></li>
