@@ -25,7 +25,7 @@ If you have found that Zenstack is the answer for you, welcome!
   <li>Install XenServer but ensure you do check '<b>enable thin provisioning</b>'. This will be referred to as your <b>dom0</b> henceforth.<br/><br/></li>
   <li>Note the IP address of your dom0 and ssh into the machine as <b>root</b><br/><br/></li>
   <li>Download the *.zip of this repository:
-  <b>wget --no-check-certificate https://github.com/roaet/zenstack/archive/master.zip</b>.<br/><br/></li>
+  <pre>wget --no-check-certificate https://github.com/roaet/zenstack/archive/master.zip</pre></li>
   <li>Extract the zip in <b>/root</b>.<br/><br/></li>
   <li><i>(Optional?)</i> If you have a license place it into the <b>same place</b> as xs_setup.sh.<br/><br/></li>
   <li>Change directory to where xs_setup.sh is.<br/><br/></li>
@@ -56,20 +56,23 @@ If you have found that Zenstack is the answer for you, welcome!
 <h2>Creating a new domU</h2>
 Creating a new domU, in case your current one is corrupted, if it failed during the install, or if you just want a fresh start is very simple. Perform the following steps as root on your dom0:
 <ol>
-  <li>Find the domU's uuid by running the command: <b>xe vm-list</b> and copy the UUID.<br/><br/></li>
-  <li>Run the command: <b>export uuid=&lt;PASTE UUID HERE&gt;</b>.<br/><br/></li>
-  <li>Shut down the current domU: <b>xe vm-shutdown uuid=$uuid</b>.<br/><br/></li>
-  <li><i>(Do this to free up the space)</i><b>xe vbd-list vm-uuid=$uuid params=vdi-uuid</b>.<br/><br/></li>
-  <li><i>(Do this to free up the space)</i><b>xe vdi-destroy uuid=$uuid params=&lt;VDI UUID HERE&gt;</b>.<br/><br/></li>
-  <li><i>(Do this to free up the space)</i>Shut down the current domU: <b>xe vm-destroy uuid=$uuid</b>.<br/><br/></li>
+  <li>Find the domU's uuid and copy it by running the command: <pre>xe vm-list</pre></li>
+  <li>Run the command: <pre>export uuid=&lt;PASTE UUID HERE&gt;</pre></li>
+  <li>Shut down the current domU: <pre>xe vm-shutdown uuid=$uuid</pre></li>
+  <li><i>(Do this to free up the space)</i>
+  <pre>
+  vdiuuid=`xe vbd-list vm-uuid=$uuid params=vdi-uuid --minimal`
+  xe vdi-destroy uuid=$uuid params=$vdiuuid
+  xe vm-destroy uuid=$uuid
+  </pre></li>
   <li>Run xs_setup.sh as described above.<br/><br/></li>
 </ol>
 
 <h2>Creating a new domU</h2>
 If you haven't been removing domUs as per the above section, your storage repository will eventually fill up. When this happens all new domUs miraculously fail during install. Perform the following steps as root on your dom0 (<b>Note: you should destroy all domU's before doing this):
 <ol>
-  <li>Find the SR uuid by running the command: <b>xe sr-list</b> and copy the UUID for "Local storage"<br/><br/></li>
-  <li>Run the command: <b>export sruuid=&lt;PASTE SR-UUID HERE&gt;</b>.<br/><br/></li>
+  <li>Find the SR named "Local storage" and copy its UUID by running the command: <pre>xe sr-list</pre></li>
+  <li>Run the command: <pre>export sruuid=&lt;PASTE SR-UUID HERE&gt;</pre></li>
   <li>Run the following command:
   <pre>
   xe vdi-list sr-uuid=$sruuid --minimal | awk 'BEGIN{FS=&quot;,&quot;}{for (i=1; i&lt;=NF; i++) system(&quot;xe vdi-destroy uuid=&quot;$i);}'
