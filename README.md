@@ -10,20 +10,21 @@ Zenstack aims to provide a customizable development environment for Openstack (O
 
 <h2>Usage (for current supported configuration)</h2>
 <ol>
-  <li>Create a new virtual machine in VMware [<b>recommended: 2 CPUs, 2048 GB</b>].</li>
-  <li>There is no real need for complicated passwords in this setup, but be conscious of the fact that passwords are currently viewable as plaintext.</li>
-  <li>Install XenServer but ensure you do check '<b>enable thin provisioning</b>'.</li>
-  <li>Note the IP address of the new VM and ssh into the machine as <b>root</b></li>
-  <li>Download the *.zip of this repository and extract it in <b>/root</b></li>
-  <li><i>(Optional?)</i> If you have a license place it into the <b>same place</b> as xs_setup.sh</li>
-  <li>Change directory to where xs_setup.sh is</li>
-  <li>Run xs_setup.sh and follow the prompts (the default values are meant to be valid). If you make a mistake during this step it is safe to CTRL+C out of the program and try again.</li>
-  <li>There are two opportunities for the setup to require more interaction after it begins</li>
-  <li>You may be required to get the XenServer kernel data from the DDK (rare as they are provided). Just follow the directions given</li>
-  <li>You will be prompted to mount the VMware Tools (Menu > Virtual Machine > Install VMware Tools). Note the prompt that mentions the kernel headers path. It would be wise to copy this path as you will need to enter it in during the VMware Tools installation</li>
-  <li>After this point the setup will not require further interaction.</li>
-  <li>The XenServer setup will continue until it outputs: <b>all done :)</b>. This does not mean the VM you are creating to run the OS services has finished. Instructions will be displayed at the end of the XenServer install to monitor the installation progress of the VM. It is important you follow them exactly.</li>
-  <li>If your internet connection is stable your VM will reboot (there will be /dev/rtc errors near the end, this is <i>okay</i>)</li>
+  <li>Create a new virtual machine in VMware [<b>recommended: 2 CPUs, 2048 GB</b>].<br/><br/></li>
+  <li>There is no real need for complicated passwords in this setup, but be conscious of the fact that passwords are currently viewable as plaintext.<br/><br/></li>
+  <li>Install XenServer but ensure you do check '<b>enable thin provisioning</b>'. This will be referred to as your <b>dom0</b> henceforth.<br/><br/></li>
+  <li>Note the IP address of your dom0 and ssh into the machine as <b>root</b><br/><br/></li>
+  <li>Download the *.zip of this repository and extract it in <b>/root</b>.<br/><br/></li>
+  <li><i>(Optional?)</i> If you have a license place it into the <b>same place</b> as xs_setup.sh.<br/><br/></li>
+  <li>Change directory to where xs_setup.sh is.<br/><br/></li>
+  <li>Run xs_setup.sh and follow the prompts (the default values are meant to be valid). If you make a mistake during this step it is safe to CTRL+C out of the program and try again. This process will create another VM inside of your dom0 where the OS services will run (regarded as <b>domU</b> henceforth).<br/><br/></li>
+  <li>There are two opportunities for the setup to require more interaction after it begins.<br/><br/></li>
+  <li>You may be required to get the XenServer kernel data from the DDK (rare as they are provided). Just follow the directions given.<br/><br/></li>
+  <li>You will be prompted to mount the VMware Tools (Menu > Virtual Machine > Install VMware Tools). Note the prompt that mentions the kernel headers path. It would be wise to copy this path as you will need to enter it in during the VMware Tools installation.<br/><br/></li>
+  <li>After this point the setup will not require further interaction.<br/><br/></li>
+  <li>The XenServer setup will continue until it outputs: <b>all done :)</b>. This does not mean the domU you are creating to run the OS services has finished. Instructions will be displayed at the end of the XenServer install to monitor the installation progress of the domU. It is important you follow them exactly.<br/><br/></li>
+  <li>If your internet connection is stable your VM will reboot (you will see /dev/rtc errors near the end if you are monitoring the domU, this is <i>okay</i>).<br/><br/></li>
+  <li>You may run xs_setup.sh again and it will skip all steps that it can. Do this if you need to create a new VM (see: Creating new domU) or if the install failed. It is not tested if XenServer will handle multiple domUs running at the same time.
 </ol>
 
 <h2>Supported Configurations</h2>
@@ -36,21 +37,32 @@ Zenstack aims to provide a customizable development environment for Openstack (O
 <ul>
   <li>Be careful when entering values as there isn't currently a good way to 'undo'.</li>
   <li>It is unknown if the install will currently work without including license.txt</li>
+  <li>If your domU fails during the install don't fret! Check out the <b>Creating new domU</b> section below.</li>
+  <li>domU is failing immediately with disk write errors? You are probably out of storage space. See the <b>Freeing some space</b> section below.</li>
 </ul>
-<h2>Proposed Features</h2>
-<ul>
-  <li>Modular selection of OS services</li>
-  <li>Boot up of additional services, such as Nicira's NVP</li>
-  <li>Proper command line hiding of passwords</li>
-  <li>Support for more versions of XenServer</li>
-  <li>Support for XCP</li>
-  <li>Support for different domU Operating Systems</li>
-  <li>Less fragile file system searches</li>
-  <li>Option to load OS services from different repositories</li>
-  <li>Option to not load VMware tools</li>
-  <li>Proper progress reports from domU to zenstack</li>
-  <li>VDI cleanup tools</li>
-</ul>
+<h2>Creating a new domU</h2>
+Creating a new domU, in case your current one is corrupted, if it failed during the install, or if you just want a fresh start is very simple. Perform the following steps as root on your dom0:
+<ol>
+  <li>Find the domU's uuid by running the command: <b>xe vm-list</b> and copy the UUID.<br/><br/></li>
+  <li>Run the command: <b>export uuid=&lt;PASTE UUID HERE&gt;</b>.<br/><br/></li>
+  <li>Shut down the current domU: <b>xe vm-shutdown uuid=$uuid</b>.<br/><br/></li>
+  <li><i>(Do this to free up the space)</i><b>xe vbd-list vm-uuid=$uuid params=vdi-uuid</b>.<br/><br/></li>
+  <li><i>(Do this to free up the space)</i><b>xe vdi-destroy uuid=$uuid params=&lt;VDI UUID HERE&gt;</b>.<br/><br/></li>
+  <li><i>(Do this to free up the space)</i>Shut down the current domU: <b>xe vm-destroy uuid=$uuid</b>.<br/><br/></li>
+  <li>Run xs_setup.sh as described above.<br/><br/></li>
+</ol>
+
+<h2>Creating a new domU</h2>
+If you haven't been removing domUs as per the above section, your storage repository will eventually fill up. When this happens all new domUs miraculously fail during install. Perform the following steps as root on your dom0 (<b>Note: you should destroy all domU's before doing this):
+<ol>
+  <li>Find the SR uuid by running the command: <b>xe sr-list</b> and copy the UUID for "Local storage"<br/><br/></li>
+  <li>Run the command: <b>export sruuid=&lt;PASTE SR-UUID HERE&gt;</b>.<br/><br/></li>
+  <li>Run the following command:
+  <pre>
+  xe vdi-list sr-uuid=$sruuid --minimal | awk 'BEGIN{FS=&quot;,&quot;}{for (i=1; i&lt;=NF; i++) system(&quot;xe vdi-destroy uuid=&quot;$i);}'
+  </pre>
+  </li>
+</ol>
 
 <h2>Applying License to XenServer</h2>
 To apply the license to XenServer you must create a file called license.txt and place it in the same directory as the root setup script (xs_setup.sh). This license should look like this example, a PGP signed message:
@@ -68,3 +80,18 @@ INYheaaSk2MqurkDk3gTgOg=
 -----END PGP SIGNATURE-----
 </pre>
 The lack of newlines in the XML <b>is</b> very important.
+
+<h2>Proposed Features</h2>
+<ul>
+  <li>Modular selection of OS services</li>
+  <li>Boot up of additional services, such as Nicira's NVP</li>
+  <li>Proper command line hiding of passwords</li>
+  <li>Support for more versions of XenServer</li>
+  <li>Support for XCP</li>
+  <li>Support for different domU Operating Systems</li>
+  <li>Less fragile file system searches</li>
+  <li>Option to load OS services from different repositories</li>
+  <li>Option to not load VMware tools</li>
+  <li>Proper progress reports from domU to zenstack</li>
+  <li>VDI cleanup tools</li>
+</ul>
