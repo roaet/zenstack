@@ -36,7 +36,7 @@ If you have found that Zenstack is the answer for you, welcome!
   <li>After this point the setup will not require further interaction.<br/><br/></li>
   <li>The XenServer setup will continue until it outputs: <b>all done :)</b>. This does not mean the domU you are creating to run the OS services has finished. Instructions will be displayed at the end of the dom0 install to monitor the installation progress of the domU. It is important you follow them exactly.<br/><br/></li>
   <li>If your internet connection is stable your VM will reboot (you will see /dev/rtc errors near the end if you are monitoring the domU, this is <i>okay</i>).<br/><br/></li>
-  <li>You may run xs_setup.sh again and it will skip all steps that it can. Do this if you need to create a new VM (see: <a href="#creating-a-new-domu">Creating</a> a new domU) or if the install failed. It is not tested if XenServer will handle multiple domUs running at the same time.
+  <li>You may run xs_setup.sh again and it will skip all steps that it can. Do this if you need to create a new VM (see: <a href="#creating-a-new-domu">Creating a new domU</a>) or if the install failed. It is not tested if XenServer will handle multiple domUs running at the same time.
 </ol>
 
 <h2>Supported Configurations</h2>
