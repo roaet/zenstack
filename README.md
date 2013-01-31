@@ -1,6 +1,6 @@
 <h1>zenstack</h1>
 <hr/>
-Zenstack aims to provide a customizable development environment for Openstack (OS) developers. It is based on XenServer (dom0) but may support XCP in the future.
+Zenstack aims to provide a customizable development environment for Openstack (OS) developers that can be deployed quickly and without much interaction. It is based on XenServer (dom0) but may support XCP in the future.
 
 <h2>Usage</h2>
 <ol>
