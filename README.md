@@ -50,6 +50,7 @@ If you have found that Zenstack is the answer for you, welcome!
   <li>It is unknown if the install will currently work without including license.txt</li>
   <li>If your domU fails during the install don't fret! Check out the <b>Creating new domU</b> section below.</li>
   <li>domU is failing immediately with disk write errors? You are probably out of storage space. See the <b>Freeing some space</b> section below.</li>
+  <li>Although rare, it is possible that the domU will not boot properly, and when you get to the part of watching its installation it will just "Segmentation Fault" and disconnect you. It is recommened that you delete that domU and create a new one.
 </ul>
 <h2>Creating a new domU</h2>
 Creating a new domU, in case your current one is corrupted, if it failed during the install, or if you just want a fresh start is very simple. Perform the following steps as root on your dom0:
