@@ -14,7 +14,7 @@ If you have found that Zenstack is the answer for you, welcome!
 <br/><br/>
 <h2>Preparatory Steps</h2>
 <ol>
-  <li>If you have a license to apply to XenServer see the section below on applying it.</li>
+  <li>If you have a license to apply to XenServer see the <a href="#applying-license-to-xenserver">section</a> below on applying it.</li>
   <li>If you are not on a stable (fast?) Internet connection this <b>will</b> fail. This is for you, wireless-users.</li>
 </ol>
 
