@@ -1,6 +1,7 @@
 <h1>Zenstack</h1>
 <hr/>
-Zenstack aims to provide a customizable development environment for Openstack (OS) developers that can be deployed quickly and without much interaction. It is based on XenServer (dom0) but may support XCP in the future.
+Zenstack aims to provide a customizable, offline, and stress-free development environment for Openstack (OS) developers that can be deployed quickly and without much interaction. It is based on XenServer (dom0) but may support XCP in the future.
+
 
 <h2>Friends and Family - Alternatives</h2>
 <img src="http://roaet.com/images/Shiny-Stacked-Rocks.jpg" align="left"/>
