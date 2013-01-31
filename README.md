@@ -39,12 +39,6 @@ If you have found that Zenstack is the answer for you, welcome!
   <li>You may run xs_setup.sh again and it will skip all steps that it can. Do this if you need to create a new VM (see: <a href="#creating-a-new-domu">Creating a new domU</a>) or if the install failed. It is not tested if XenServer will handle multiple domUs running at the same time.
 </ol>
 
-<h2>Supported Configurations</h2>
-<ul>
-  <li>Debian Squeeze (domU) hosted by XenServer 6.0.0 (dom0) running in VMware fusion 4.1.3 on OS X 10.8.2 [2.3 Ghz i7, 8 GB]</li>
-  <li>Debian Squeeze (domU) hosted by XenServer 6.0.0 (dom0) running in VMware fusion 5.0.2 on OS X 10.8.2 [2.3 Ghz i7, 8 GB]</li>
-</ul>
-
 <h2>Troubleshooting</h2>
 <ul>
   <li>Be careful when entering values as there isn't currently a good way to 'undo'.</li>
@@ -96,6 +90,12 @@ INYheaaSk2MqurkDk3gTgOg=
 -----END PGP SIGNATURE-----
 </pre>
 The lack of newlines in the XML <b>is</b> very important.
+
+<h2>Supported Configurations</h2>
+<ul>
+  <li>Debian Squeeze (domU) hosted by XenServer 6.0.0 (dom0) running in VMware fusion 4.1.3 on OS X 10.8.2 [2.3 Ghz i7, 8 GB]</li>
+  <li>Debian Squeeze (domU) hosted by XenServer 6.0.0 (dom0) running in VMware fusion 5.0.2 on OS X 10.8.2 [2.3 Ghz i7, 8 GB]</li>
+</ul>
 
 <h2>Proposed Features</h2>
 <ul>
