@@ -28,6 +28,7 @@ Zenstack aims to provide a customizable development environment for Openstack (O
 <h2>Supported Configurations</h2>
 <ul>
   <li>Debian Squeeze (domU) hosted by XenServer 6.0.0 (dom0) running in VMware fusion 4.1.3 on OS X 10.8.2 [2.3 Ghz i7, 8 GB]</li>
+  <li>Debian Squeeze (domU) hosted by XenServer 6.0.0 (dom0) running in VMware fusion 5 on OS X 10.8.2 [2.3 Ghz i7, 8 GB]</li>
 </ul>
 
 <h2>Troubleshooting</h2>
