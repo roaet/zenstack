@@ -27,7 +27,7 @@ If you have found that Zenstack is the answer for you, welcome!
   <li>Download the *.zip of this repository:
   <pre>wget --no-check-certificate https://github.com/roaet/zenstack/archive/master.zip</pre></li>
   <li>Extract the zip in <b>/root</b>.<br/><br/></li>
-  <li><i>(Optional?)</i> If you have a license place it into the <b>same place</b> as xs_setup.sh.<br/><br/></li>
+  <li><i>(Optional)</i> If you have a license place it into the <b>same place</b> as xs_setup.sh.<br/><br/></li>
   <li>Change directory to where xs_setup.sh is.<br/><br/></li>
   <li>Run xs_setup.sh and follow the prompts (the default values are meant to be valid). If you make a mistake during this step it is safe to CTRL+C out of the program and try again. This process will create another VM inside of your dom0 where the OS services will run (regarded as <b>domU</b> henceforth).<br/><br/></li>
   <li>There are two opportunities for the setup to require more interaction after it begins.<br/><br/></li>
@@ -42,7 +42,6 @@ If you have found that Zenstack is the answer for you, welcome!
 <h2>Troubleshooting</h2>
 <ul>
   <li>Be careful when entering values as there isn't currently a good way to 'undo'.</li>
-  <li>It is unknown if the install will currently work without including license.txt</li>
   <li>If your domU fails during the install don't fret! Check out the <a href="#creating-a-new-domu">Creating a new domU</a>.</li>
   <li>domU is failing immediately with disk write errors? You are probably out of storage space. See the <a href="#freeing-some-space">Freeing some space</a>.</li>
   <li>Although rare, it is possible that the domU will not boot properly, and when you get to the part of watching its installation it will just "Segmentation Fault" and disconnect you. It is recommened that you delete that domU and create a new one.
