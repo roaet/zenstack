@@ -68,7 +68,7 @@ Creating a new domU, in case your current one is corrupted, if it failed during 
   <li>Run xs_setup.sh as described above.<br/><br/></li>
 </ol>
 
-<h2>Creating a new domU</h2>
+<h2>Bulk Clearing VDIs</h2>
 If you haven't been removing domUs as per the above section, your storage repository will eventually fill up. When this happens all new domUs miraculously fail during install. Perform the following steps as root on your dom0 (<b>Note: you should destroy all domU's before doing this):
 <ol>
   <li>Find the SR named "Local storage" and copy its UUID by running the command: <pre>xe sr-list</pre></li>
