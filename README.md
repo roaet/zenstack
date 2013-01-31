@@ -23,7 +23,8 @@ If you have found that Zenstack is the answer for you, welcome!
   <li>There is no real need for complicated passwords in this setup, but be conscious of the fact that passwords are currently viewable as plaintext.<br/><br/></li>
   <li>Install XenServer but ensure you do check '<b>enable thin provisioning</b>'. This will be referred to as your <b>dom0</b> henceforth.<br/><br/></li>
   <li>Note the IP address of your dom0 and ssh into the machine as <b>root</b><br/><br/></li>
-  <li>Download the *.zip of this repository and extract it in <b>/root</b>.<br/><br/></li>
+  <li>Download the *.zip of this repository and extract it in <b>/root</b>. This command works:
+  <b>wget --no-check-certificate https://github.com/roaet/zenstack/archive/master.zip</b><br/><br/></li>
   <li><i>(Optional?)</i> If you have a license place it into the <b>same place</b> as xs_setup.sh.<br/><br/></li>
   <li>Change directory to where xs_setup.sh is.<br/><br/></li>
   <li>Run xs_setup.sh and follow the prompts (the default values are meant to be valid). If you make a mistake during this step it is safe to CTRL+C out of the program and try again. This process will create another VM inside of your dom0 where the OS services will run (regarded as <b>domU</b> henceforth).<br/><br/></li>
