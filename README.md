@@ -39,6 +39,7 @@ Zenstack aims to provide a customizable development environment for Openstack (O
 <h2>Proposed Features</h2>
 <ul>
   <li>Modular selection of OS services</li>
+  <li>Boot up of additional services, such as Nicira's NVP</li>
   <li>Proper command line hiding of passwords</li>
   <li>Support for more versions of XenServer</li>
   <li>Support for XCP</li>
