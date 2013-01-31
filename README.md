@@ -5,7 +5,7 @@ Zenstack aims to provide a customizable development environment for Openstack (O
 <h2>Alternatives</h2>
 Zenstack is currently in Pre-Alpha. Although it manages to perform all tasks successfully, it currently does not support customization and may not have your exact configuration. It is recommended that you ensure that the other available solutions are not better-fits for your particular situation. The below list is an incomplete list of alternatives:
 <ul>
-  <li><a href="http://devstack.org">devstack</a></li> - A very popular and even less interactive install of OS.
+  <li><a href="http://devstack.org">devstack</a> - A very popular and even less interactive install of OS.</li>
 </ul>
 If you are aware of or are the author of a project much like Zenstack, please contact me and I will put a link to your project here.
 
