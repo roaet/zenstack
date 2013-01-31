@@ -56,7 +56,7 @@ Creating a new domU, in case your current one is corrupted, if it failed during 
   <li><i>(Do this to free up the space)</i>
   <pre>
   vdiuuid=`xe vbd-list vm-uuid=$uuid params=vdi-uuid --minimal`
-  xe vdi-destroy uuid=$uuid params=$vdiuuid
+  xe vdi-destroy uuid=$vdiuuid
   xe vm-destroy uuid=$uuid
   </pre></li>
   <li>Run xs_setup.sh as described in <a href="#usage-for-current-supported-configuration">usage</a>.<br/><br/></li>
