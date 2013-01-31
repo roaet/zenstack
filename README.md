@@ -7,7 +7,9 @@ Zenstack is currently in Pre-Alpha. Although it manages to perform all tasks suc
 <ul>
   <li><a href="http://devstack.org">devstack</a></li>
 </ul>
-If you are aware of or are the author of a project much like Zenstack, please contact me and I will put a link to your project here. If you have found that Zenstack is the answer for you, welcome!
+If you are aware of or are the author of a project much like Zenstack, please contact me and I will put a link to your project here.
+
+If you have found that Zenstack is the answer for you, welcome!
 
 <h2>Preparatory Steps</h2>
 <ol>
