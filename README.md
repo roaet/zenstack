@@ -18,7 +18,7 @@ If you have found that Zenstack is the answer for you, welcome!
   <li>If you are not on a stable (fast?) Internet connection this <b>will</b> fail. This is for you, wireless-users.</li>
 </ol>
 
-<h2>Usage (for current supported configuration)</h2>
+<h2>Usage (for current <a href="#supported-configurations">supported configurations</a>)</h2>
 <ol>
   <li>Create a new "Other Linux 2.6.x kernel 64-bit" VM in VMware [<b>recommended: 2 CPUs, 2048 GB RAM, 20GB HDD</b>].<br/><br/></li>
   <li>There is no real need for complicated passwords in this setup, but be conscious of the fact that passwords are currently viewable as plaintext.<br/><br/></li>
