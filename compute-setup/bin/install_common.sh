@@ -19,4 +19,6 @@ sudo apt-get -y install htop
 chex $? "apt-get htop"
 sudo apt-get -y install bash-completion
 chex $? "apt-get bash-completion"
+sudo apt-get build-dep python-psycopg2
+chex $? "apt-get build-dep python-psychopg"
 pip_install virtualenv
