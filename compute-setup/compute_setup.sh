@@ -28,7 +28,6 @@ mkdir $HOME/.pip
 mkdir $HOME/.pip/download-cache
 cat > $HOME/.pip/pip.conf << EOF
 [global]
-index-url = http://d.pypi.python.org/simple
 timeout = 60
                                                     
 [install]
