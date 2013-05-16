@@ -36,8 +36,8 @@ fi
 if [ -f "$DIR/license.txt" ]; then 
     run_step "xs_license_apply.sh"
 fi
-#run_step "xs_vmware_devsetup.sh"
+run_step "xs_vmware_devsetup.sh"
 #run_step "xs_vmware_ddk.sh"
-#run_step "xs_vmware_tools.sh"
+run_step "xs_vmware_tools.sh"
 run_step "xs_compute_install.sh"
 echo "all done :)"
