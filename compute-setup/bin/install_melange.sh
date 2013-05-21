@@ -23,6 +23,7 @@ virtualenv $MELANGEDIR/.venv --prompt="(melange)"
 chex $? "error make virtualenv"
 cd_ $MELANGEDIR
 source .venv/bin/activate --no-site-packages
+pip install --upgrade distribute
 chex $? "error activate venv"
 GHINTERNAL=`checkforhost github.rackspace.com`
 if [ "$GHINTERNAL" = "0" ]; then

@@ -24,6 +24,7 @@ chex $? "error make virtualenv"
 cd_ $NOVADIR
 chex $? "error cd $NOVADIR"
 source .venv/bin/activate --no-site-packages
+pip install --upgrade distribute
 chex $? "error activate venv"
 GHINTERNAL=`checkforhost github.rackspace.com`
 if [ "$GHINTERNAL" = "0" ]; then

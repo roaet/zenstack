@@ -26,6 +26,7 @@ chex $? "error make virtualenv"
 cd_ $QUANTUMDIR
 chex $? "error cd $QUANTUMDIR"
 source .venv/bin/activate --no-site-packages
+pip install --upgrade distribute
 chex $? "error activate venv"
 GHINTERNAL=`checkforhost github.rackspace.com`
 if [ "$GHINTERNAL" = "0" ]; then

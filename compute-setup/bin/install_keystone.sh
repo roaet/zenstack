@@ -24,6 +24,7 @@ virtualenv $KEYSTONEDIR/.venv --prompt="(keystone)"
 chex $? "Error creating venv"
 cd_ $KEYSTONEDIR
 source .venv/bin/activate --no-site-packages
+pip install --upgrade distribute
 chex $? "Error activating venv"
 cp_ -r etc $ETCWORK
 mv $ETCWORK/keystone.conf.sample $ETCWORK/keystone.conf

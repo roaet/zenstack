@@ -24,6 +24,7 @@ chex $? "Error creating venv"
 cd_ $GLANCEDIR
 ETCWORK=etc_working
 source .venv/bin/activate --no-site-packages
+pip install --upgrade distribute
 chex $? "Error activating venv"
 cp_ -r etc $ETCWORK
 IMAGE_DIR="$GLANCEDIR/images"
