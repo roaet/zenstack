@@ -45,12 +45,16 @@ projects were configured to be run and will then attempt to configure
 them so that they may communicate with each other, if necessary.
 """
 import zenstack.common as zs
+import zenstack.targets as targets
 
 
 def main():
     zs.message("Starting zenstack")
-    zs.error("This is an error")
-    zs.log("This is a random log")
+    Target = targets.select_target()
+    target = Target()
+    target.initialize()
+    target.install_target()
+    target.post_install()
 
 
 if __name__ == "__main__":

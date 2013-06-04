@@ -9,7 +9,22 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
+import pkgutil
+
 from clint.textui import puts, indent, colored
+
+
+def get_input(prompt):
+    return raw_input(prompt)
+
+
+def import_all_from_package(package):
+    prefix = package.__name__ + "."
+    packages = list()
+    for importer, modname, ispkg in pkgutil.iter_modules(
+            package.__path__, prefix):
+        packages.append(modname)
+    return packages
 
 
 def message(message):
