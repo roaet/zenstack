@@ -46,6 +46,7 @@ them so that they may communicate with each other, if necessary.
 """
 import zenstack.common as zs
 import zenstack.targets as targets
+import zenstack.deployments as deploys
 
 
 def main():
@@ -55,6 +56,12 @@ def main():
     target.initialize()
     target.install_target()
     target.post_install()
+
+    zs.message("")
+    Deploy = deploys.select_deploy()
+    deploy = Deploy()
+    deploy.configure()
+    deploy.initialize()
 
 
 if __name__ == "__main__":

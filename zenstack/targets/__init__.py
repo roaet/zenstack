@@ -9,28 +9,8 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
-import sys
-
 import zenstack.common as zs
 
 
 def select_target():
-    current_module = sys.modules[__name__]
-    target_pkgs = zs.import_all_from_package(current_module)
-    valid_selection = False
-    while not valid_selection:
-        i = 1
-        zs.log("Targets:")
-        for target in target_pkgs:
-            zs.log("%d: %s" % (i, target))
-            i += 1
-        try:
-            selection = int(zs.get_input("(1-%d): " % (i-1))) - 1
-            if 0 <= selection < i:
-                module = __import__(target_pkgs[selection], fromlist="dummy")
-                zs.message("Selected %s target." % module.Target.name)
-                return module.Target
-        except ValueError:
-            pass
-        zs.error("Invalid selection.")
-    pass
+    return zs.select_package_list(__name__, "target")

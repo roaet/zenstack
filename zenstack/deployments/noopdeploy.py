@@ -11,26 +11,26 @@
 #  limitations under the License.
 import zenstack.common as zs
 
-from nooptarget import NoopTarget as Base
 
+class NoopDeploy(object):
 
-class Ubuntu1304(Base):
-
-    name = "Ubuntu 13.04"
-    description = "Server installation"
+    name = "Noop"
+    description = "A no-action deploy. Will do nothing."
 
     def __init__(self):
-        super(Ubuntu1304, self).__init__()
+        pass
+
+    def configure(self):
+        zs.task("Configuring deployment %s" % self.name)
 
     def initialize(self):
-        super(Ubuntu1304, self).initialize()
+        zs.task("Initializing deployment %s" % self.name)
 
-    def install_target(self):
-        super(Ubuntu1304, self).install_target()
-        zs.log("Fixing ubuntu 13.04 python issue")
+    def install_deploy(self):
+        zs.task("Installing deployment %s" % self.name)
 
-    def post_install(self):
-        super(Ubuntu1304, self).post_install()
+    def post_deploy(self):
+        zs.task("Cleaning-up deployment %s" % self.name)
 
 
-Target = Ubuntu1304
+Target = NoopDeploy

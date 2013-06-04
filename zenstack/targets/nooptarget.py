@@ -15,18 +15,19 @@ import zenstack.common as zs
 class NoopTarget(object):
 
     name = "Noop"
+    description = "A no-operation target. Will do nothing"
 
     def __init__(self):
         pass
 
     def initialize(self):
-        zs.log("Initializing target %s" % self.name)
+        zs.task("Initializing target %s" % self.name)
 
     def install_target(self):
-        zs.log("Installing target %s" % self.name)
+        zs.task("Installing target %s" % self.name)
 
     def post_install(self):
-        zs.log("Cleaning-up target %s" % self.name)
+        zs.task("Clean-up target %s" % self.name)
 
 
 Target = NoopTarget

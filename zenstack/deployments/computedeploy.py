@@ -9,28 +9,25 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
-import zenstack.common as zs
-
-from nooptarget import NoopTarget as Base
+from noopdeploy import NoopDeploy as Base
 
 
-class Ubuntu1304(Base):
+class ComputeDeploy(Base):
 
-    name = "Ubuntu 13.04"
-    description = "Server installation"
+    name = "Compute"
+    description = "An openstack compute node deployment."
 
-    def __init__(self):
-        super(Ubuntu1304, self).__init__()
+    def configure(self):
+        super(ComputeDeploy, self).configure()
 
     def initialize(self):
-        super(Ubuntu1304, self).initialize()
+        super(ComputeDeploy, self).initialize()
 
-    def install_target(self):
-        super(Ubuntu1304, self).install_target()
-        zs.log("Fixing ubuntu 13.04 python issue")
+    def install_deploy(self):
+        super(ComputeDeploy, self).install_deploy()
 
-    def post_install(self):
-        super(Ubuntu1304, self).post_install()
+    def post_deploy(self):
+        super(ComputeDeploy, self).post_deploy()
 
 
-Target = Ubuntu1304
+Target = ComputeDeploy

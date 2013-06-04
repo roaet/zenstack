@@ -11,26 +11,6 @@
 #  limitations under the License.
 import zenstack.common as zs
 
-from nooptarget import NoopTarget as Base
 
-
-class Ubuntu1304(Base):
-
-    name = "Ubuntu 13.04"
-    description = "Server installation"
-
-    def __init__(self):
-        super(Ubuntu1304, self).__init__()
-
-    def initialize(self):
-        super(Ubuntu1304, self).initialize()
-
-    def install_target(self):
-        super(Ubuntu1304, self).install_target()
-        zs.log("Fixing ubuntu 13.04 python issue")
-
-    def post_install(self):
-        super(Ubuntu1304, self).post_install()
-
-
-Target = Ubuntu1304
+def select_deploy():
+    return zs.select_package_list(__name__, "deploy")
