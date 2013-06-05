@@ -9,26 +9,3 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
-from noopdeploy import NoopDeploy as Base
-
-
-class ComputeDeploy(Base):
-
-    name = "Compute"
-    description = "An openstack compute node deployment."
-    deploy_projects = []
-
-    def configure(self):
-        super(ComputeDeploy, self).configure()
-
-    def initialize(self):
-        super(ComputeDeploy, self).initialize()
-
-    def install_deploy(self):
-        super(ComputeDeploy, self).install_deploy()
-
-    def post_deploy(self):
-        super(ComputeDeploy, self).post_deploy()
-
-
-Target = ComputeDeploy

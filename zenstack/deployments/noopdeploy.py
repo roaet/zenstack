@@ -10,12 +10,14 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 import zenstack.common as zs
+from zenstack.projects.noopproject import NoopProject as Noop
 
 
 class NoopDeploy(object):
 
     name = "Noop"
     description = "A no-action deploy. Will do nothing."
+    deploy_projects = [Noop]
 
     def __init__(self):
         pass

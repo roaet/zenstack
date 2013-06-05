@@ -9,26 +9,22 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
-from noopdeploy import NoopDeploy as Base
+import zenstack.common as zs
 
 
-class ComputeDeploy(Base):
+class NoopProject(object):
 
-    name = "Compute"
-    description = "An openstack compute node deployment."
-    deploy_projects = []
+    name = "Noop"
+    description = "A no-operation project. Will do nothing."
 
-    def configure(self):
-        super(ComputeDeploy, self).configure()
+    def __init__(self):
+        pass
 
     def initialize(self):
-        super(ComputeDeploy, self).initialize()
+        zs.task("Initializing project %s" % self.name)
 
-    def install_deploy(self):
-        super(ComputeDeploy, self).install_deploy()
+    def run_project(self):
+        zs.task("Setting up project %s" % self.name)
 
-    def post_deploy(self):
-        super(ComputeDeploy, self).post_deploy()
-
-
-Target = ComputeDeploy
+    def clean_project(self):
+        zs.task("Cleaning up project %s" % self.name)
