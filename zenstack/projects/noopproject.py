@@ -10,15 +10,17 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 import zenstack.common as zs
+import zenstack.targets.nooptarget as targets
 
 
 class NoopProject(object):
 
     name = "Noop"
     description = "A no-operation project. Will do nothing."
+    target = targets.NoopTarget
 
-    def __init__(self):
-        pass
+    def __init__(self, target):
+        self.target = target
 
     def initialize(self):
         zs.task("Initializing project %s" % self.name)

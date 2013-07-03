@@ -29,5 +29,8 @@ class NoopTarget(object):
     def post_install(self):
         zs.task("Clean-up target %s" % self.name)
 
+    def package_install(self, pkg):
+        zs.task("Installing package %s" % pkg)
+
 
 Target = NoopTarget
