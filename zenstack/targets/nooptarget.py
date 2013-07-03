@@ -9,10 +9,10 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
-import zenstack.common as zs
+from zenstack.basetarget import BaseTarget as Base
 
 
-class NoopTarget(object):
+class NoopTarget(Base):
 
     name = "Noop"
     description = "A no-operation target. Will do nothing"
@@ -31,6 +31,5 @@ class NoopTarget(object):
 
     def package_install(self, pkg):
         zs.task("Installing package %s" % pkg)
-
 
 Target = NoopTarget
