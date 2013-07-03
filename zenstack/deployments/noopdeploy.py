@@ -11,16 +11,17 @@
 #  limitations under the License.
 import zenstack.common as zs
 from zenstack.projects.noopproject import NoopProject as Noop
+from zenstack.basedeploy import BaseDeploy as Base
 
 
-class NoopDeploy(object):
+class NoopDeploy(Base):
 
     name = "Noop"
     description = "A no-action deploy. Will do nothing."
     deploy_projects = [Noop]
 
-    def __init__(self):
-        pass
+    def __init__(self, target):
+        super(NoopDeploy, self).__init__(target)
 
     def configure(self):
         zs.task("Configuring deployment %s" % self.name)

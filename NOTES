@@ -1,0 +1,32 @@
+Primary target functions found in the alpha build compute_setup.sh
+
+- Loading configuration information from a common place
+- Creation of the pip download cache and the pip config
+- Running substeps
+
+Update sources:
+
+- Updates repo sources
+- Updates repos
+
+Setup mysql:
+
+- Sets up mysql and creates a bunch of database
+- Should be done from each project instead of all together
+
+Conf nova flags:
+
+- Primarily sets up nova configuration things
+- It should be done in the nova project instead of in a big chunk
+
+Things that zenstack 2 needs to do:
+
+- Configure repositories to some base setting
+- Update target repos
+- Install using target's repo manager
+- Modify configuration files like sed
+- Generate configuration files
+- Make modifications to target file system
+- Install python packages (pip)
+- Create symbolic links
+

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
 #  You may obtain a copy of the License at
@@ -10,59 +10,34 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
-"""
-Created June 3, 2013
-
-@author: Justin Hammond, Rackspace Hosting
-
-Zenstack performs its duties in steps:
-1. Gather configuration information
-2. Perform tasks of all projects
-    - The failure of a project should not cancel the deployment
-    - The success of a project should be stored
-    - Rerunning a project that has succeeded should noted
-3. Integrate projects
-
-Zenstack has a hierachy of constructs that organize a complete
-deployment of zenstack.
-- A target is the OS host that will have zenstack put on it.
-    Ex: Ubuntu 13.04
-- A deployment is a type of zenstack that will be put on the target.
-    Ex: Compute or XCP Hypervisor
-- A configuration is the particular way a deployment will be set up.
-    Ex: With Quantum/Melange or with Quark
-- A project is a single service that will be deployed with said config.
-    Ex: Quantum, Nova, or Keystone
-- A task is a step that will be taken during the deployment of a project.
-    Ex: Installing dependancies, installing plugins (for quantum)
-
-A project should not be dependant on any other project so they may be
-installed simultaneously. If a project has dependancies it should be
-set a task of a project.
-
-After running each project the integration steps will discover which
-projects were configured to be run and will then attempt to configure
-them so that they may communicate with each other, if necessary.
-"""
 import zenstack.common as zs
 import zenstack.targets as targets
 import zenstack.deployments as deploys
 
+class Zenstack(object):
+    target = None
+    deploy = None
 
-def main():
-    zs.message("Starting zenstack")
-    Target = targets.select_target()
-    target = Target()
-    target.initialize()
-    target.install_target()
-    target.post_install()
+    def __init__(self):
+        pass
 
-    zs.message("")
-    Deploy = deploys.select_deploy()
-    deploy = Deploy()
-    deploy.configure()
-    deploy.initialize()
+    def run(self):
+        self.target.install()
+        self.target.post_install()
+
+    def configure(self):
+        zs.message("Starting zenstack")
+        Target = targets.select_target()
+        self.target = Target()
+        if not self.target.check_can_run():
+            print "Shouldn't run"
+
+        Deploy = deploys.select_deploy()
+        self.deploy = Deploy(self.target)
+        self.deploy.configure()
 
 
 if __name__ == "__main__":
-    main()
+    zen = Zenstack()
+    zen.configure()
+    zen.run()

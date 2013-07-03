@@ -70,3 +70,8 @@ def log(message):
 def task(message):
     with indent(4, quote=colored.blue('#')):
         puts(colored.blue("%s" % message))
+
+
+def perform(command):
+    with indent(4, quote=colored.yellow('@')):
+        puts(colored.yellow("%s" % command))

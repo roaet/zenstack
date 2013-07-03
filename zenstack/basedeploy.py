@@ -9,23 +9,27 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
-from zenstack.basedeploy import BaseDeploy as Base
+import zenstack.common as zs
 
 
-class ComputeDeploy(Base):
+class BaseDeploy(object):
 
-    name = "Compute"
-    description = "An openstack compute node deployment."
-    deploy_projects = []
+    name = "Base"
+    description = "The base deploy that defines the deploy interface"
+    target = None
 
     def __init__(self, target):
-        super(ComputeDeploy, self).__init__(target)
+        self.target = target
+        self.initialize()
 
     def configure(self):
-        super(ComputeDeploy, self).configure()
-        self.target.repo_add_package("rabbitmq-server screen " +
-                                     "vim tmux euca2ools " +
-                                     "ipython htop bash-completion")
+        zs.task("Configuring deployment %s" % self.name)
 
+    def initialize(self):
+        zs.task("Initializing deployment %s" % self.name)
 
-Target = ComputeDeploy
+    def install_deploy(self):
+        zs.task("Installing deployment %s" % self.name)
+
+    def post_deploy(self):
+        zs.task("Cleaning-up deployment %s" % self.name)
